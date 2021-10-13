@@ -1,0 +1,17 @@
+body {
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	font-variant: normal;
+	/* font-variant: small-caps; */
+}
+
+.light-theme {
+	background: #F0F0F0;
+	color: #0F0F0F;
+}
+
+.dark-theme {
+	background: #0F0F0F;
+	color: #F0F0F0;
+}
