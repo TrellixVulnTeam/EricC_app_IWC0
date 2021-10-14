@@ -44,8 +44,14 @@
 	</span>
 	<span style="float:right;">
 		{% if user.is_authenticated %}
+			{% url 'profile' as profile_url %}			
 			<span>
-				User: {{user.username}}
+				User: {% if request.path == profile_url %}{{user.username}}{% else %}<a href="{{ profile_url }}">{{ user.username }}</a>{% endif %},
+			</span>
+			<span>
+				<a href="{% url 'logout' %}">
+					Logout
+				</a>
 			</span>
 		{% else %}
 			<span>

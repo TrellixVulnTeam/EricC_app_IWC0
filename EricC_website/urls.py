@@ -28,7 +28,9 @@ urlpatterns = [
     path('about',vw.about,name='about'),
 
     # auth
-    path('login', auth_vw.LoginView.as_view(template_name='accounts/login.html'),name='login'),
+    path('login', auth_vw.LoginView.as_view(template_name='login.html'),name='login'),
+    path('logout', auth_vw.LogoutView.as_view(),name='logout'),
+    path('profile',vw.ProfileView.as_view(),name='profile'),
 
 ]
 
