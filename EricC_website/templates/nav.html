@@ -1,0 +1,45 @@
+<div>
+	{% url 'home' as home_url %}
+	<span>
+		{% if request.path == home_url %}
+		Home
+		{% else %}
+		<a href="{% url 'home' %}">
+			Home
+		</a>
+		{% endif %}
+	</span>
+
+	{% url 'projects' as projects_url %}
+	<span>
+		{% if request.path == projects_url %}
+		Projects
+		{% else %}
+		<a href="{% url 'projects' %}">
+			Projects
+		</a>
+		{% endif %}
+	</span>
+	
+	{% url 'notes' as notes_url %}
+	<span>
+		{% if request.path == notes_url %}
+		Notes
+		{% else %}
+		<a href="{% url 'notes' %}">
+			Notes
+		</a>
+		{% endif %}
+	</span>
+	
+	{% url 'about' as about_url %}
+	<span>
+		{% if request.path == about_url %}
+		About
+		{% else %}
+		<a href="{% url 'about' %}">
+			About
+		</a>
+		{% endif %}
+	</span>
+</div>
