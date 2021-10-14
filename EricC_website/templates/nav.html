@@ -4,7 +4,7 @@
 		{% if request.path == home_url %}
 		Home
 		{% else %}
-		<a href="{% url 'home' %}">
+		<a href="{{ home_url }}">
 			Home
 		</a>
 		{% endif %}
@@ -15,7 +15,7 @@
 		{% if request.path == projects_url %}
 		Projects
 		{% else %}
-		<a href="{% url 'projects' %}">
+		<a href="{{ projects_url }}">
 			Projects
 		</a>
 		{% endif %}
@@ -26,7 +26,7 @@
 		{% if request.path == notes_url %}
 		Notes
 		{% else %}
-		<a href="{% url 'notes' %}">
+		<a href="{{ notes_url }}">
 			Notes
 		</a>
 		{% endif %}
@@ -37,9 +37,23 @@
 		{% if request.path == about_url %}
 		About
 		{% else %}
-		<a href="{% url 'about' %}">
+		<a href="{{ about_url }}">
 			About
 		</a>
 		{% endif %}
 	</span>
+	<span style="float:right;">
+		{% if user.is_authenticated %}
+			<span>
+				User: {{user.username}}
+			</span>
+		{% else %}
+			<span>
+				<a href="{% url 'login' %}">
+					Login
+				</a>
+			</span>
+		{% endif %}
+	</span>
+
 </div>

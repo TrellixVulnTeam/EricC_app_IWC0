@@ -16,14 +16,21 @@ Including another URLconf
 from django.contrib import admin;
 from django.urls import path;
 from django.views.generic.base import TemplateView;
-from . import views;
+from django.contrib.auth import views as auth_vw;
+from . import views as vw;
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('',views.home,name='home'),
-    path('projects',views.projects,name='projects'),
-    path('notes',views.notes,name='notes'),
-    path('about',views.about,name='about'),
+    path('',vw.home,name='home'),
+    path('projects',vw.projects,name='projects'),
+    path('notes',vw.notes,name='notes'),
+    path('about',vw.about,name='about'),
+
+    # auth
+    path('login', auth_vw.LoginView.as_view(template_name='accounts/login.html'),name='login'),
 
 ]
+
+# for django own
+# path ('accounts/',include(;django.contrib.auth.urls)),
