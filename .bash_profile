@@ -62,3 +62,6 @@ alias ∫="bash"
 # make file
 alias mkf="touch"
 alias mkd="mkdir"
+
+# run server
+alias t="bash run.sh"
