@@ -1,2 +1,0 @@
-# dev reqs + productions reqs
--r prod.txt
