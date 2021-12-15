@@ -10,3 +10,6 @@ def contact(request) :
 
 def about(request) :
 	return rnd(request, 'about.html');
+
+def profile(request) :
+	return rnd(request, 'profile.html');
