@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% block title %}EricC{% endblock %}</title>
+	<title>EricC - {% block title %}{% endblock %}</title>
 	{% include 'styles/global.html' %}
 </head>
 <body>
-	{% include 'nav.html' %}
+	{% include 'nav/nav.html' %}
 	<main>
 		{% block content %}
 		{% endblock %}
