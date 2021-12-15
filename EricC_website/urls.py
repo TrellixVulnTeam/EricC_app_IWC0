@@ -25,9 +25,9 @@ urlpatterns = [
     path('', pages.home, name='home'),
     path('about', pages.about, name='about'),
     path('contact', pages.contact, name='contact'),
-    path('profile', pages.profile, name='profile'),
+    # path('profile', pages.profile, name='profile'),
 
     # auth
-    path('login', auth.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout', auth.LogoutView.as_view(), name='logout')
+    # path('login', auth.LoginView.as_view(template_name='login.html'), name='login'),
+    # path('logout', auth.LogoutView.as_view(), name='logout')
 ]

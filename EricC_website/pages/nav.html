@@ -19,28 +19,4 @@
 		<a href="{{ contact_url }}">Contact</a>
 		{% endif %}
 	</span>	
-
-	{% url 'login' as login_url %}
-	{% url 'logout' as logout_url %}
-	{% url 'profile' as profile_url %}
-	<span style="float:right">
-		{% if user.is_authenticated %}
-			{% if request.path != profile_url %}
-				<span>
-					logged in as: <a href="{{ profile_url }}">{{ user.username }}</a>
-				</span>
-			{% else %}
-				<span>
-					logged in as: {{ user.username }}
-				</span>
-			{% endif %}
-			<span>
-				<a href="{{ logout_url }}">Logout</a>	
-			</span>
-		{% else %}
-			<span>
-				<a href="{{ login_url }}">Login</a>	
-			</span>
-		{% endif %}
-	</span>
 </div>
