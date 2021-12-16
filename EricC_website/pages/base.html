@@ -6,11 +6,48 @@
 	<title>EricC - {% block title %}{% endblock %}</title>
 	{% include 'styles/global.html' %}
 </head>
+
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+
 <body>
-	{% include 'nav/nav.html' %}
-	<main>
+	<!-- below code is for the nav bar and whatever else put on it -->
+	<div class="bar">
+		<span class="bar_txt">
+			<span class="title">
+				{% block page_title %}
+				{% endblock %}
+			</span>
+			<span class="links">
+				<span class="link_btn">
+					{% if request.path == home_url %}
+						<p_f>Home</p_f>
+					{% else %}	
+						<a href="{{ home_url }}">Home</a>
+					{% endif %}
+				</span>	
+				<span class="link_btn">
+					{% if request.path == about_url %}
+						<p_f>About</p_f>
+					{% else %}
+						<a href="{{ about_url }}">About</a>
+					{% endif %}
+				</span>	
+				<span class="link_btn">
+					{% if request.path == contact_url %}
+						<p_f>Contact</p_f>
+					{% else %}
+						<a href="{{ contact_url }}">Contact</a>
+					{% endif %}
+				</span>
+			</span>
+		</span>
+	</div>
+	<!-- other content for the page -->
+	<div class="page_content">
 		{% block content %}
 		{% endblock %}
-	</main>
+	</div>
 </body>
 </html>
