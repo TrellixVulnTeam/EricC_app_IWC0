@@ -7,7 +7,7 @@
 	<!-- THANK YOU MATHJAX! -->
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-	
+
 	<!-- using the includes to cheat the css syntax -->
 	{% include 'styles/style_start.html' %}
 	<!-- import the css files needed / all of them -->
@@ -21,6 +21,10 @@
 
 <body>
 	<!-- below code is for the nav bar and whatever else put on it -->
+	<span class="page_title">
+		{% block page_title %}
+		{% endblock %}
+	</span>
 	{% include 'nav/nav.html' %}
 	<!-- other content for the page -->
 	<div class="page_content">

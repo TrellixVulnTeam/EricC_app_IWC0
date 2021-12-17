@@ -1,42 +1,34 @@
-{% url 'home' as home_url %}
-{% url 'about' as about_url %}
-{% url 'contact' as contact_url %}
-
 <div class="bar">
 	<span class="bar_txt">
-		<span class="page_title">
-			{% if request.path == home_url %}
-				<t>tmp home</t>
-			{% elif request.path == about_url %}
-				<t>tmp about</t>
-			{% elif request.path == contact_url %}
-				<t>tmp contact</t>
-			{% else %}
-				<t>not a page</t>
-			{% endif %}
-		</span>
-		<span class="page_links">
-			<span class="link_btn">
-				{% if request.path == home_url %}
-					<p_f>Home</p_f>
-				{% else %}	
-					<a class="page_link" href="{{ home_url }}">Home</a>
-				{% endif %}
-			</span>	
-			<span class="link_btn">
-				{% if request.path == about_url %}
-					<p_f>About</p_f>
-				{% else %}
-					<a class="page_link" href="{{ about_url }}">About</a>
-				{% endif %}
-			</span>	
-			<span class="link_btn">
-				{% if request.path == contact_url %}
-					<p_f>Contact</p_f>
-				{% else %}
-					<a class="page_link" href="{{ contact_url }}">Contact</a>
-				{% endif %}
+		<div class="drop"> 
+			<button class="menu">
+				Menu
+			</button>
+			<span class="page_links">
+				<div class="link_btn">
+					{% if request.path == '/' %}
+						<p_f>Home</p_f>
+					{% else %}	
+						<a class="page_link" href="{{ '/' }}">Home</a>
+					{% endif %}
+				</div>	
+
+				<div class="link_btn">
+					{% if request.path == '/about' %}
+						<p_f>About</p_f>
+					{% else %}
+						<a class="page_link" href="{{ '/about' }}">About</a>
+					{% endif %}
+				</div>	
+				
+				<div class="link_btn">
+					{% if request.path == '/contact' %}
+						<p_f>Contact</p_f>
+					{% else %}
+						<a class="page_link" href="{{ '/contact' }}">Contact</a>
+					{% endif %}
+				</div>
 			</span>
 		</span>
-	</span>
+	</div>
 </div>

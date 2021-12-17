@@ -12,8 +12,8 @@
 
 	--dark: rgba(17, 15, 20, 1.0);
 	--light: rgba(220, 220, 220, 1.0);
-	--dark_top_bar: rgba(17, 15, 20, 0.975);
-	--dark_bar_fade: rgba(17, 15, 20, 0.985);
+	--dark_top_bar: rgba(17, 15, 20, 0.945);
+	--dark_bar_fade: rgba(17, 15, 20, 0.955);
 
 	--test_col: rgba(90, 90, 90, 1.0);
 }
@@ -43,7 +43,7 @@
 	width: 240pt;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: var(--test_col);
+	background-color: var(--dark);
 	color: var(--light);
 	padding: 8pt;
 	border-style: none none solid none;

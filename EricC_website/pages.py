@@ -11,5 +11,12 @@ def contact(request) :
 def about(request) :
 	return rnd(request, 'about.html');
 
+def projects(request) :
+	return rnd(request, 'projects.html');
+
+def education(request) :
+	return rnd(request, 'education.html');
+
+
 # def profile(request) :
 # 	return rnd(request, 'profile.html');
