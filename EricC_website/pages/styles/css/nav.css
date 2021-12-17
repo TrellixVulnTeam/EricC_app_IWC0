@@ -1,0 +1,46 @@
+a {
+	text-decoration: none;
+	color: var(--light);
+	-webkit-transition: 125ms linear 0s;
+	-moz-transition: 125ms linear 0s;
+	-o-transition: 125ms linear 0s;
+	transition: 125ms linear 0s;
+}
+
+a:hover {
+	text-decoration: dotted underline;
+	color: var(--light);
+	/* cursor: pointer; */
+	text-shadow: 0pt 0pt 1pt var(--light);
+}
+
+.link_btn {
+	padding-left: 2pt;
+	font-size: var(--link_font_sz);
+}
+
+.page_links {
+	float: right;
+}
+.page_title {
+	float:  left;
+}
+
+.bar {
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 96%;
+	height: 16pt;
+	background-color: var(--dark_top_bar);
+	padding-top: 24pt;
+	padding-bottom: 16pt;
+	margin-left: 2%;
+	margin-right: 2%;
+	box-shadow: 0pt 0pt 20pt 20pt var(--dark_bar_fade);
+	z-index: 9;
+}
+.bar_txt {
+	width: inherit;
+	height: inherit;
+}

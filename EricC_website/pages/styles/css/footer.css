@@ -1,0 +1,20 @@
+.footer {
+	z-index: 6;
+	background-color: var(--dark);
+	color: var(--light);
+	top: 48pt;
+	height: auto;
+	position: relative;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 16pt;
+	padding-bottom: 32pt;
+	height: auto;
+	width: auto;
+	box-shadow: 0pt 0pt 12pt 12pt var(--dark);
+
+}
+
+.footer_col {
+
+}

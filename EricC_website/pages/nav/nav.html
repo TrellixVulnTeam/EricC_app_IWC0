@@ -1,13 +1,21 @@
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'contact' as contact_url %}
+
 <div class="bar">
 	<span class="bar_txt">
-		<span class="title">
-			{% block page_title %}
-			{% endblock %}
+		<span class="page_title">
+			{% if request.path == home_url %}
+				<t>tmp home</t>
+			{% elif request.path == about_url %}
+				<t>tmp about</t>
+			{% elif request.path == contact_url %}
+				<t>tmp contact</t>
+			{% else %}
+				<t>not a page</t>
+			{% endif %}
 		</span>
-		<span class="links">
+		<span class="page_links">
 			<span class="link_btn">
 				{% if request.path == home_url %}
 					<p_f>Home</p_f>

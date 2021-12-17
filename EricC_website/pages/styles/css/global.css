@@ -1,0 +1,14 @@
+body {
+	font-family: sans-serif;
+	font-size: var(--main_font_sz);
+	background-color: var(--dark);
+	color: var(--light);
+}
+t {
+	font-size: var(--titl_font_sz);
+	font-weight: var(--titl_font_wt);
+}
+p_f {
+	text-decoration: underline;
+	color: var(--light);
+}
