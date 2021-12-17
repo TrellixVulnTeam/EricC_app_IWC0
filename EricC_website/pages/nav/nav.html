@@ -11,7 +11,23 @@
 					{% else %}	
 						<a class="page_link" href="{{ '/' }}">Home</a>
 					{% endif %}
-				</div>	
+				</div>
+
+				<div class="link_btn">
+					{% if request.path == '/education' %}
+						<p_f>Projects</p_f>
+					{% else %}	
+						<a class="page_link" href="{{ '/education' }}">Education</a>
+					{% endif %}
+				</div>
+
+				<div class="link_btn">
+					{% if request.path == '/projects' %}
+						<p_f>Projects</p_f>
+					{% else %}	
+						<a class="page_link" href="{{ '/projects' }}">Projects</a>
+					{% endif %}
+				</div>
 
 				<div class="link_btn">
 					{% if request.path == '/about' %}

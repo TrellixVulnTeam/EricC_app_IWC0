@@ -14,7 +14,7 @@
 	--dark_top_bar: rgba(17, 15, 20, 0.945);
 	--dark_bar_fade: rgba(17, 15, 20, 0.955);
 
-	--drop_shadow: rgba(17, 15, 20, 0.95);
+	--drop_shadow: rgba(17, 15, 20, 0.1);
 
 	--test_col: rgba(90, 90, 90, 1.0);
 }
@@ -77,7 +77,8 @@ p_f {
 	left: -8pt;
 	display: none;
 	background-color: rgba(0, 0, 0, 0);
-	box-shadow: -2pt 2pt 2pt 2pt inset var(--drop_shadow);
+	box-shadow: -1pt 1pt 2pt 2pt inset var(--dark_top_bar);
+	box-shadow: -1pt 1pt 1pt var(--drop_shadow);
 	z-index: 10;
 	padding: 8pt;
 	height: auto;
