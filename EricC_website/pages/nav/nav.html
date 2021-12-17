@@ -20,21 +20,21 @@
 				{% if request.path == home_url %}
 					<p_f>Home</p_f>
 				{% else %}	
-					<a href="{{ home_url }}">Home</a>
+					<a class="page_link" href="{{ home_url }}">Home</a>
 				{% endif %}
 			</span>	
 			<span class="link_btn">
 				{% if request.path == about_url %}
 					<p_f>About</p_f>
 				{% else %}
-					<a href="{{ about_url }}">About</a>
+					<a class="page_link" href="{{ about_url }}">About</a>
 				{% endif %}
 			</span>	
 			<span class="link_btn">
 				{% if request.path == contact_url %}
 					<p_f>Contact</p_f>
 				{% else %}
-					<a href="{{ contact_url }}">Contact</a>
+					<a class="page_link" href="{{ contact_url }}">Contact</a>
 				{% endif %}
 			</span>
 		</span>

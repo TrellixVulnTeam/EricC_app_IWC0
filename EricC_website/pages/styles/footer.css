@@ -1,33 +1,65 @@
 :root {
 	--main_font_sz: 12pt;
 	--link_font_sz: 14pt;
+
 	--titl_font_sz: 16pt;
 	--titl_font_wt: 800;
+
+	--foot_titl_sz: 12pt;
+	--foot_titl_wt: 800;
+	--foot_cont_sz: 10pt;
+	--foot_subcont_sz: 10pt;
+
 	--dark: rgba(17, 15, 20, 1.0);
 	--light: rgba(220, 220, 220, 1.0);
 	--dark_top_bar: rgba(17, 15, 20, 0.975);
 	--dark_bar_fade: rgba(17, 15, 20, 0.985);
 
-	--test_col: rgba(22, 20, 25, 1.0);
+	--test_col: rgba(90, 90, 90, 1.0);
 }
 
 .footer {
-	z-index: 6;
+	z-index: 8;
 	background-color: var(--dark);
 	color: var(--light);
 	top: 48pt;
-	height: auto;
 	position: relative;
 	margin-left: 10%;
 	margin-right: 10%;
 	padding: 16pt;
 	padding-bottom: 32pt;
-	height: auto;
 	width: auto;
+	height: auto;
 	box-shadow: 0pt 0pt 12pt 12pt var(--dark);
+}
 
+.footer_wrapper {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .footer_col {
+	z-index: 8;
+	width: 240pt;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: var(--test_col);
+	color: var(--light);
+	padding: 8pt;
+	border-style: none none solid none;
+	border-color: var(--light);
+	border-block-width: 2px;
+}
 
+.footer_title {
+	font-size: var(--foot_titl_sz);
+
+}
+
+.footer_content {
+	font-size: var(--foot_cont_sz);
+}
+
+.footer_subcontent {
+	font-size: var(--foot_subcont_sz);
 }

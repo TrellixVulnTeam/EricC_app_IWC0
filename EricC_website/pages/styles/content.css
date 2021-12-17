@@ -1,17 +1,25 @@
 :root {
 	--main_font_sz: 12pt;
 	--link_font_sz: 14pt;
+
 	--titl_font_sz: 16pt;
 	--titl_font_wt: 800;
+
+	--foot_titl_sz: 12pt;
+	--foot_titl_wt: 800;
+	--foot_cont_sz: 12pt;
+
 	--dark: rgba(17, 15, 20, 1.0);
 	--light: rgba(220, 220, 220, 1.0);
 	--dark_top_bar: rgba(17, 15, 20, 0.975);
 	--dark_bar_fade: rgba(17, 15, 20, 0.985);
 
-	--test_col: rgba(22, 20, 25, 1.0);
+	--test_col: rgba(90, 90, 90, 1.0);
 }
 
 .page_content {
+	font-size: var(--main_font_sz);
+
 	position: relative;
 	top: 48pt;
 	background-color: var(--light);
