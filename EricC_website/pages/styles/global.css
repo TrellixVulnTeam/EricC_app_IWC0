@@ -46,6 +46,7 @@ body {
 
 .page_title {
 	padding: 16pt;
+	padding-left: 48pt;
 	z-index: 10;
 	position: fixed;
 	float:  left;

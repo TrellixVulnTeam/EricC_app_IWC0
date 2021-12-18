@@ -38,6 +38,10 @@
 .footer_wrapper {
 	display: flex;
 	flex-wrap: wrap;
+	border-style: solid none none none;
+	border-color: var(--light);
+	border-block-width: 2px;
+	padding-top: 8pt;
 }
 
 .footer_col {
@@ -48,6 +52,7 @@
 	background-color: var(--dark);
 	color: var(--light);
 	padding: 8pt;
+	padding-bottom: 16pt;
 	border-style: none none solid none;
 	border-color: var(--light);
 	border-block-width: 2px;

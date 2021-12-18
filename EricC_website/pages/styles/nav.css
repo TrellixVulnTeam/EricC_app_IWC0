@@ -68,8 +68,8 @@ p_f {
 	float: right;
 	position: relative;
 	display: inline-block;
-
-	left:  -36pt;
+	top: -8pt;
+	left:  -32pt;
 }
 
 .page_links {
