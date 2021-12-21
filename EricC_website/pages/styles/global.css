@@ -8,6 +8,7 @@
 	--foot_titl_sz: 12pt;
 	--foot_titl_wt: 800;
 	--foot_cont_sz: 10pt;
+	--foot_subcont_sz: 10pt;
 
 	--dark: rgba(17, 15, 20, 1.0);
 	--light: rgba(220, 220, 220, 1.0);
@@ -46,10 +47,22 @@ body {
 
 .page_title {
 	padding: 16pt;
-	padding-left: 48pt;
+	padding-left: 96pt;
 	z-index: 10;
 	position: fixed;
 	float:  left;
+	font-size: var(--titl_font_sz);
+	font-weight: var(--titl_font_wt);
+}
+
+.icon {
+	padding: 0pt;
+	padding-left: 8pt;
+	z-index: 10;
+	position: fixed;
+	float:  left;
+	width: calc(44*(108/61)*1pt);
+	height: 44pt;
 	font-size: var(--titl_font_sz);
 	font-weight: var(--titl_font_wt);
 }

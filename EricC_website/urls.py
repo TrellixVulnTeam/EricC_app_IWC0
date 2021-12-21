@@ -2,6 +2,9 @@ from django.contrib import admin;
 from django.urls import path;
 from django.views.generic.base import TemplateView as tmpv;
 from django.contrib.auth import views as auth;
+from django.contrib.staticfiles.storage import staticfiles_storage;
+from django.views.generic.base import RedirectView;
+from django.conf import settings;
 
 from . import pages;
 
@@ -12,6 +15,12 @@ urlpatterns = [
     path('contact', pages.contact, name='contact'),
     path('projects', pages.projects, name='projects'),
     path('education', pages.education, name='education'),
+
+
+    # favicon
+    path('favicon.ico', 
+        RedirectView.as_view(url=staticfiles_storage.url('favicon/favicon.ico'))
+        ),
 ]
 
 
