@@ -17,6 +17,5 @@ def projects(request) :
 def education(request) :
 	return rnd(request, 'education.html');
 
-
 # def profile(request) :
 # 	return rnd(request, 'profile.html');

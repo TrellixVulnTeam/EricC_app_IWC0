@@ -1,10 +1,13 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>EricC - {% block title %}{% endblock %}</title>
-	{% include 'assets/icon.html' %}
+	<!-- wee icon in the tab bar -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 
 	<!-- mathjax import for latex maths / eqns display -->
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -29,14 +32,16 @@
 		{% block page_title %}
 		{% endblock %}
 	</span>
-
+	{% include 'assets/icon.html' %}
 
 	{% include 'nav/nav.html' %}
-	<!-- other content for the page -->
+
+	<!-- content for the page -->
 	<div class="page_content">
 		{% block content %}
 		{% endblock %}
 	</div>
+
 	<!-- global footer that will be put at the bottom of page -->
 	{% include 'footer/foot.html' %}
 </body>

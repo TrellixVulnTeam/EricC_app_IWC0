@@ -73,9 +73,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'pages/assets/'
+ASSET_URL = 'pages/assets/'
+ASSET_DIR = os.path.join(PROJ_DIR, ASSET_URL)
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(PROJ_DIR, STATIC_URL)
+    os.path.join(ASSET_DIR, STATIC_URL)
 ]
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
