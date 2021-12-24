@@ -38,10 +38,15 @@
 .footer_wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	border-style: solid none none none;
+	padding-top: 8pt;
+}
+
+.footer_sep {
+	margin-left: 32pt;
+	margin-right: 32pt;	border-style: solid none none none;
 	border-color: var(--light);
 	border-block-width: 2px;
-	padding-top: 8pt;
+	width: auto;
 }
 
 .footer_col {
