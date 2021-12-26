@@ -15,6 +15,7 @@ urlpatterns = [
     path('contact', pages.contact, name='contact'),
     path('projects', pages.projects, name='projects'),
     path('education', pages.education, name='education'),
+    path('projects/eqn/search', pages.eqn_search, name='eqn_search'),
 
 
     # favicon

@@ -36,6 +36,7 @@ p_f {
 	font-size: var(--link_font_sz);
 	padding: 2pt;
 	margin: 2pt;
+	text-shadow: 0pt 0pt 2pt var(--dark);
 }
 
 .page_link {
@@ -51,7 +52,7 @@ p_f {
 	text-decoration: dotted underline;
 	color: var(--light);
 	/* cursor: pointer; */
-	text-shadow: 0pt 0pt 1pt var(--light);
+	text-shadow: -1pt 1pt 4pt var(--dark);
 }
 
 .menu {
@@ -78,8 +79,8 @@ p_f {
 	left: -8pt;
 	display: none;
 	background-color: rgba(0, 0, 0, 0);
-	box-shadow: -1pt 1pt 2pt 2pt inset var(--dark_top_bar);
-	box-shadow: -1pt 1pt 1pt var(--drop_shadow);
+	box-shadow: 0pt 0pt 4pt 2pt inset var(--dark_top_bar);
+	box-shadow: -1pt 1pt 2pt var(--drop_shadow);
 	z-index: 10;
 	padding: 8pt;
 	height: auto;
@@ -87,7 +88,6 @@ p_f {
 
 .menu:hover {
 	text-shadow: 0pt 0pt 1pt var(--light);
-	text-decoration: underline;
 }
 
 .drop:hover .page_links {

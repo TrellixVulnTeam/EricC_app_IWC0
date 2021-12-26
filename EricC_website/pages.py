@@ -17,5 +17,14 @@ def projects(request) :
 def education(request) :
 	return rnd(request, 'education.html');
 
+def eqn_search(request) :
+	return rnd(request, 'projects/eqn/eqn_search.html');
+
+def eqn_view(request) :
+	return rnd(request, 'projects/eqn/eqn_view.html');
+
+
+
+
 # def profile(request) :
 # 	return rnd(request, 'profile.html');
