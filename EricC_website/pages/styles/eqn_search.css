@@ -1,0 +1,29 @@
+:root {
+	--main_font_sz: 12pt;
+	--link_font_sz: 14pt;
+
+	--titl_font_sz: 18pt;
+	--titl_font_wt: 800;
+
+	--foot_titl_sz: 12pt;
+	--foot_titl_wt: 800;
+	--foot_cont_sz: 10pt;
+	--foot_subcont_sz: 10pt;
+
+	--dark: rgba(17, 15, 20, 1.0);
+	--light: rgba(220, 220, 220, 1.0);
+	--dark_top_bar: rgba(17, 15, 20, 0.945);
+	--dark_bar_fade: rgba(17, 15, 20, 0.955);
+
+	--drop_shadow: rgba(17, 15, 20, 0.95);
+
+	--test_col: rgba(90, 90, 90, 1.0);
+}
+
+.search_field {
+	font-size: var(--main_font_sz);
+	box-shadow: 0pt 0pt 1pt 0pt var(--dark);
+	background-color: rgba(240, 240, 240, 1.0);
+	color: var(--dark);
+	padding: 2pt;
+}

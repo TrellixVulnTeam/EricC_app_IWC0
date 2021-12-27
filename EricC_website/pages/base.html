@@ -21,8 +21,15 @@
 	{% include 'styles/nav.css' %}
 	{% include 'styles/content.css' %}
 	{% include 'styles/footer.css' %}
+	{% include 'styles/eqn_search.css' %}
 	
 	{% include 'styles/style_end.html' %}
+
+	{% if request.path == '/projects/eqn/search' %}
+		{% include 'js/js_start.html' %}
+			{% include 'dbs/search.js' %}
+		{% include 'js/js_end.html' %}
+	{% endif %}
 
 </head>
 

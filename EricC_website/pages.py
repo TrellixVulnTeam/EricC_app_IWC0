@@ -1,6 +1,8 @@
 from django.http import HttpResponse;
 from django.template import loader as ldr;
 from django.shortcuts import render as rnd;
+import sqlite3 as sql;
+import os,sys;
 
 def home(request) :
 	return rnd(request, 'home.html');
@@ -18,6 +20,21 @@ def education(request) :
 	return rnd(request, 'education.html');
 
 def eqn_search(request) :
+	# flnm_tmp = next(os.walk('./'),(None, None,[]))[2]  # [] if no file
+	# print(flnm_tmp);
+	def get_dat() :
+		db_conn = sql.connect('./EricC_website/pages/dbs/eqns.db');
+		db_curs = db_conn.cursor();
+		print('successful conn to db');
+		db_data = db_curs.execute('''SELECT * FROM "eqns"''');
+		# for dat in db_data : 
+		# 	for d in dat :
+		# 		print(d);
+		db_conn.close();
+		return db_data;
+
+	data = get_dat();
+
 	return rnd(request, 'projects/eqn/eqn_search.html');
 
 def eqn_view(request) :
