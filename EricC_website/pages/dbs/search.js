@@ -1,6 +1,5 @@
 var field = '';
 var data = JSON.parse("{{data|escapejs}}");
-console.log(data);
 
 function update_field() {
 	console.log('before: ' + field);
@@ -14,6 +13,25 @@ function clear_search() {
 	field = '';
 }
 
-function search_results() {
+function search() {
+	return 0;
+}
 
+function search_results() {
+	if (field == '') {
+		let displayed_data = data;
+		document.getElementById('search_results').innerHTML = '';
+		for (let i = 0; i < data.length; i++) {
+			document.getElementById('search_results').innerHTML += '<div class="result_row">'
+			+ '<span class="result_id">id: ' + data[i]['id'] + '</span>'
+			+ '<span class="result_name">name: ' + data[i]['name'] + '</span>'
+			+ '<span class="result_eqn">$ ' + data[i]['eqn'] + ' $</span>'
+			+ '</div>';
+		}
+		MathJax.Hub.Queue(['Typeset', MathJax.Hub])
+	}
+	else {
+		let displayed_data = search();
+		document.getElementById('search_results').innerHTML = 'not done yet'
+	}
 }

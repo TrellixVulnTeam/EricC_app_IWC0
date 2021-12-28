@@ -22,7 +22,7 @@ Equation Search
 	<div class="spacer"></div>
 	<div>
 		<span>
-			<input class="search_field" id="search_field" type="text" name="search_field" placeholder="Type here..." onkeyup="update_field()">
+			<input class="search_field" id="search_field" type="text" name="search_field" placeholder="Type here..." onkeyup="update_field(); search_results()">
 		</span>
 		<span>
 			<button onclick="clear_search()" class="clear_btn">
@@ -31,8 +31,20 @@ Equation Search
 		</span>
 	</div>
 	<div class="spacer"></div>
-	<div class="search_results" >
-		Results here...
+	<div class="search_results">You can narrow down the search by: typing the name of the law or equation, typing </div>
+	<div class="spacer"></div>
+	<div class="search_results" id="search_results">
+		<script type="text/javascript">
+			var data = JSON.parse("{{data|escapejs}}");
+			let displayed_data = data;
+			for (let i = 0; i < data.length; i++) {
+				document.getElementById('search_results').innerHTML += '<div class="result_row">'
+				+ '<span class="result_id">id: ' + data[i]['id'] + '</span>'
+				+ '<span class="result_name">name: ' + data[i]['name'] + '</span>'
+				+ '<span class="result_eqn">$ ' + data[i]['eqn'] + ' $</span>'
+				+ '</div>';
+			}
+		</script>
 	</div>
 </div>
 <div class="spacer"></div>
