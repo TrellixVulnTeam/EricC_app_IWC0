@@ -33,3 +33,25 @@
 	color: var(--dark);
 	padding-left: 2pt;
 }
+
+.clear_btn {
+	font-size: var(--main_font_sz);
+	color: var(--dark);
+	background-color: var(--light);	
+	box-shadow: 0pt 0pt 1pt 1pt var(--dark);
+	padding: 2pt;
+	border-color: rgba(0, 0, 0, 0);
+	transition: 125ms linear 0s;
+}
+
+.clear_btn:hover {
+	color: var(--light);
+	background-color: var(--dark);
+	transition: 75ms linear 0s;
+}
+
+.clear_btn:active {
+	box-shadow: 0pt 0pt 2pt 1pt rgba(240, 240, 240, 1.0);
+	text-shadow: 0pt 0pt 1pt rgba(240, 240, 240, 1.0);
+	color: rgba(240, 240, 240, 1.0);
+}

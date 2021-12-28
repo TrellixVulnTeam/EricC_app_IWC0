@@ -3,6 +3,7 @@ from django.template import loader as ldr;
 from django.shortcuts import render as rnd;
 import sqlite3 as sql;
 import os,sys;
+from json import dumps;
 
 def home(request) :
 	return rnd(request, 'home.html');
@@ -25,17 +26,31 @@ def eqn_search(request) :
 	def get_dat() :
 		db_conn = sql.connect('./EricC_website/pages/dbs/eqns.db');
 		db_curs = db_conn.cursor();
-		print('successful conn to db');
+		# print('successful conn to db');
 		db_data = db_curs.execute('''SELECT * FROM "eqns"''');
-		# for dat in db_data : 
-		# 	for d in dat :
-		# 		print(d);
+		db_out = [];
+		for dat in db_data : 
+			entry = {
+			'id': dat[0],
+			'name': dat[1],
+			'eqn': dat[2],
+			'vars': dat[3],
+			'defs': dat[4],
+			'other_names': dat[5],
+			'other_eqns': dat[6],
+			'other_vars': dat[7],
+			'other_defs': dat[8]
+			};
+			# print(entry);
+			db_out.append(entry);
+
 		db_conn.close();
-		return db_data;
+		return db_out;
 
-	data = get_dat();
+	tmp_dat = get_dat();
+	data_out = dumps(tmp_dat);
 
-	return rnd(request, 'projects/eqn/eqn_search.html');
+	return rnd(request, 'projects/eqn/eqn_search.html', {'data': data_out});
 
 def eqn_view(request) :
 	return rnd(request, 'projects/eqn/eqn_view.html');

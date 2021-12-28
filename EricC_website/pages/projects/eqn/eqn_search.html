@@ -22,14 +22,16 @@ Equation Search
 	<div class="spacer"></div>
 	<div>
 		<span>
-			<input class="search_field" id="search_field" type="text" name="search_field" placeholder="Type here..." onkeyup="testF()">
+			<input class="search_field" id="search_field" type="text" name="search_field" placeholder="Type here..." onkeyup="update_field()">
 		</span>
-		<span class="search_note">
-			Press Enter to search.
+		<span>
+			<button onclick="clear_search()" class="clear_btn">
+				Clear
+			</button>
 		</span>
 	</div>
 	<div class="spacer"></div>
-	<div class="search_results">
+	<div class="search_results" >
 		Results here...
 	</div>
 </div>
