@@ -27,3 +27,9 @@
 	color: var(--dark);
 	padding: 2pt;
 }
+
+.search_note {
+	font-size: var(--main_font_sz);
+	color: var(--dark);
+	padding-left: 2pt;
+}
