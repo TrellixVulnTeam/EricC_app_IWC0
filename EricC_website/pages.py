@@ -39,7 +39,8 @@ def eqn_search(request) :
 			'other_names': dat[5],
 			'other_eqns': dat[6],
 			'other_vars': dat[7],
-			'other_defs': dat[8]
+			'other_defs': dat[8],
+			'similarity': 0
 			};
 			# print(entry);
 			db_out.append(entry);

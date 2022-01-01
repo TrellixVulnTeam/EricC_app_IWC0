@@ -42,8 +42,9 @@
 }
 
 .footer_sep {
-	margin-left: 32pt;
-	margin-right: 32pt;	border-style: solid none none none;
+	/* margin-left: 32pt; */
+	/* margin-right: 32pt;	 */
+	border-style: solid none none none;
 	border-color: var(--light);
 	border-block-width: 2px;
 	width: auto;
