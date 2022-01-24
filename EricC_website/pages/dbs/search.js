@@ -47,7 +47,13 @@ const symbols_gr = [['phi','varphi','Phi'],
 					['omega','Omega'],
 					['digamma','Digamma']];
 
-const symbols_ma = ['partial','infty','ell','nabla','int','hbar','prime','sqrt','dot','ddot','hat','vec','sum','bar','tilde','overline','underline','oint','prod','sin','cos','tan','sinh',''];
+const symbols_ma = ['partial','infty','ell',
+					'nabla','int','hbar','prime',
+					'sqrt','dot','ddot','hat',
+					'vec','sum','bar','tilde',
+					'overline','underline','oint',
+					'prod','sin','cos','tan','sinh',
+					''];
 
 // BUTTON FUNCTIONS //
 
