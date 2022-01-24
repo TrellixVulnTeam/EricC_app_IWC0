@@ -58,6 +58,5 @@ def eqn_view(request) :
 
 
 
-
 # def profile(request) :
 # 	return rnd(request, 'profile.html');

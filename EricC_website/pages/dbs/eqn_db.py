@@ -54,9 +54,6 @@ for f in filenames :
 
 	os.popen('mv in/%s done/' % f);
 
-
-
-
 conn.commit();
 conn.close();
 ind_file.close();

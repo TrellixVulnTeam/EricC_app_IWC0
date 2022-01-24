@@ -21,12 +21,32 @@ Equation Search
 	</div>
 	<div class="spacer"></div>
 	<div>
-		<span>
-			<input class="search_field" id="search_field" type="text" name="search_field" placeholder="Type here..." onkeyup="update_field(); search_results()">
+		<span class="nw_block">
+			<input class="search_field" id="search_field" type="text" name="search_field" placeholder="Type here..." onkeyup="update_field(); search_results();">
 		</span>
-		<span>
-			<button onclick="clear_search()" class="clear_btn">
+		<span class="nw_block">
+			<button onclick="clear_search(); search_results();" class="clear_btn">
 				Clear
+			</button>
+		</span>
+		<span class="vert_sep"></span>
+		<span class="nw_block">
+			Search by:
+			<button onclick="search_for_name();" id="name_search" class="name_search">
+				Eqn Name
+			</button>
+			<button onclick="search_for_var();" id="var_search" class="var_search">
+				Variable
+			</button>
+		</span>
+		<span class="vert_sep"></span>
+		<span class="nw_block">
+			View as:
+			<button onclick="view_as_list(); search_results();" id="list_view" class="list_view">
+				List
+			</button>
+			<button onclick="view_as_box(); search_results();" id="box_view" class="box_view">
+				Box
 			</button>
 		</span>
 	</div>
@@ -36,20 +56,9 @@ Equation Search
 		<div class="search_results" id="search_results">
 			<div class="result_wrapper" id="result_wrapper">
 				<script type="text/javascript">
-					var data = JSON.parse("{{data|escapejs}}");
-					let displayed_data = data;
-					for (let i = 0; i < data.length; i++) {
-						document.getElementById('result_wrapper').innerHTML += ''
-						+ '<div class="result_box">'
-						+ '<div>'
-						+ '<span class="result_id">' + data[i]['id'] + '</span>'
-						+ '<span class="result_name">' + data[i]['name'] + '</span>'
-						+ '</div>'
-						+ '<div class="result_eqn">$ ' + data[i]['eqn'] + ' $</div>'
-						+ '<div>' + 'similarity: ' + data[i]['similarity'] + '</div>'
-						+ '<div class="result_view">' + '<a class="view_link">view</a>' + '</div>'
-						+ '</div>';
-					}
+					search_for_name();
+					view_as_list();
+					search_results();
 				</script>
 			</div>
 		</div>
