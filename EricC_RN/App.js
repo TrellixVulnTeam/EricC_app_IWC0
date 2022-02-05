@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, ScrollView, Dimensions, Platform } from 'react-
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createStackNavigator } from '@react-navigation/stack';
->>>>>>> old-state
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
