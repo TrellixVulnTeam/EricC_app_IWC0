@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, Dimensions, Platform } from 'react-native';
+<<<<<<< HEAD
 
+=======
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import { createStackNavigator } from '@react-navigation/stack';
+>>>>>>> old-state
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { colour } from './Colours';
 import { TMP } from './pages/tmp'; 
 
+<<<<<<< HEAD
+=======
+const Stack = createStackNavigator()
+>>>>>>> old-state
 const Drawer = createDrawerNavigator();
 
 const app_theme = {
@@ -75,7 +85,11 @@ class App extends Component {
 				<NavigationContainer theme={app_theme}>
 					<Drawer.Navigator initialRouteName='tmp'
 						drawerIcon={{
+<<<<<<< HEAD
 							tintColor: colour.dark,
+=======
+							color: colour.dark,
+>>>>>>> old-state
 						}}
 						screenOptions={{
 							drawerActiveTintColor: colour.dark,
@@ -88,10 +102,68 @@ class App extends Component {
 								color: colour.light,
 							},
 						}}>
+<<<<<<< HEAD
 						<Drawer.Screen name='tmp' component={TMP} />
 						<Drawer.Screen name='tmp1' component={TMP} />
 						<Drawer.Screen name='tmp2' component={TMP} />
 						<Drawer.Screen name='...' component={TMP} />
+=======
+						<Drawer.Screen name='Home' component={TMP} 
+							options={{
+								drawerLabel: 'Home',
+								drawerIcon: ({focused}) => (
+									<Icon
+										name = 'home-outline'
+										color = {focused ? colour.dark : colour.light}
+										size = {16}
+									/>
+								)
+							}}/>
+						<Drawer.Screen name='Education' component={TMP} 
+							options={{
+								drawerLabel: 'Education',
+								drawerIcon: ({focused}) => (
+									<Icon
+										name = 'book-outline'
+										color = {focused ? colour.dark : colour.light}
+										size = {16}
+									/>
+								)
+							}}/>
+						<Drawer.Screen name='Projects' component={TMP} 
+							options={{
+								drawerLabel: 'Projects',
+								drawerIcon: ({focused}) => (
+									<Icon
+										name = 'code-working'
+										color = {focused ? colour.dark : colour.light}
+										size = {16}
+									/>
+								)
+							}}/>
+						<Drawer.Screen name='Contact' component={TMP} 
+							options={{
+								drawerLabel: 'Contact',
+								drawerIcon: ({focused}) => (
+									<Icon
+										name = 'journal-outline'
+										color = {focused ? colour.dark : colour.light}
+										size = {16}
+									/>
+								)
+							}}/>
+						<Drawer.Screen name='About' component={TMP} 
+							options={{
+								drawerLabel: 'About',
+								drawerIcon: ({focused}) => (
+									<Icon
+										name = 'reader-outline'
+										color = {focused ? colour.dark : colour.light}
+										size = {16}
+									/>
+								)
+							}}/>
+>>>>>>> old-state
 					</Drawer.Navigator>
 				</NavigationContainer>
 			</View>
