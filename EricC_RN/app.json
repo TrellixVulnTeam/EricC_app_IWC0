@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "EC_app",
+    "name": "ECapp",
     "slug": "ECapp",
     "owner": "yeoldeericc",
     "version": "1.0.0",
@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#110f14"
-      }
+      },
+      "package": "com.yeoldeericc.ECapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
