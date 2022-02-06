@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, Dimensions, Platform } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions, Platform, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createStackNavigator } from '@react-navigation/stack';
@@ -92,10 +92,6 @@ class App extends Component {
 								color: colour.light,
 							},
 						}}>
-						<Drawer.Screen name='tmp' component={TMP} />
-						<Drawer.Screen name='tmp1' component={TMP} />
-						<Drawer.Screen name='tmp2' component={TMP} />
-						<Drawer.Screen name='...' component={TMP} />
 						<Drawer.Screen name='Home' component={TMP} 
 							options={{
 								drawerLabel: 'Home',
@@ -103,7 +99,7 @@ class App extends Component {
 									<Icon
 										name = 'home-outline'
 										color = {focused ? colour.dark : colour.light}
-										size = {16}
+										size = {24}
 									/>
 								)
 							}}/>
@@ -114,7 +110,7 @@ class App extends Component {
 									<Icon
 										name = 'book-outline'
 										color = {focused ? colour.dark : colour.light}
-										size = {16}
+										size = {24}
 									/>
 								)
 							}}/>
@@ -125,7 +121,7 @@ class App extends Component {
 									<Icon
 										name = 'code-working'
 										color = {focused ? colour.dark : colour.light}
-										size = {16}
+										size = {24}
 									/>
 								)
 							}}/>
@@ -136,7 +132,7 @@ class App extends Component {
 									<Icon
 										name = 'journal-outline'
 										color = {focused ? colour.dark : colour.light}
-										size = {16}
+										size = {24}
 									/>
 								)
 							}}/>
@@ -147,12 +143,21 @@ class App extends Component {
 									<Icon
 										name = 'reader-outline'
 										color = {focused ? colour.dark : colour.light}
-										size = {16}
+										size = {24}
 									/>
 								)
 							}}/>
 					</Drawer.Navigator>
+					<Image source={require('./assets/adaptive-icon.png')}
+						style={{
+							width: 64,
+							height: 64,
+							position: 'absolute',
+							left: this.state.SCREEN_W - 64,
+						}}
+					/>
 				</NavigationContainer>
+				
 			</View>
 		)
 	}
