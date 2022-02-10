@@ -1,0 +1,15 @@
+
+## HOW THE INPUT FILES NEED TO BE FORMATTED ##
+## note - the 'other' parts must be separa- ##
+## -ted by a comma AND a space. Plus eqns   ##
+## are to be in LaTex format.               ##
+
+name
+eqn
+vars
+defs
+other names
+other eqns
+other vars
+other defs
+
