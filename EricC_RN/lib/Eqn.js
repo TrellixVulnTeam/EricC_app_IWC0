@@ -14,15 +14,7 @@ class Eqn extends Component {
 			img: null,
 			img_id: '',
 		}
-		this.componentDidMount = this.componentDidMount.bind(this);
 		this.gen_eqn_view = this.gen_eqn_view.bind(this);
-		this.gen_img = this.gen_img.bind(this);
-		this.gen_img_id = this.gen_img_id.bind(this);
-
-	}
-	componentDidMount() {
-		this.gen_img_id(32);
-		//this.gen_img();
 	}
 
 	gen_eqn_view() {
@@ -43,20 +35,6 @@ class Eqn extends Component {
 				</MathJaxSvg>
 			</View>
 		)
-	}
-
-	gen_img() {
-		return(
-			<ViewShot ref="viewShot" options={{ format: "png", result: "tmpfile"}}>
-				{this.gen_eqn_view()}
-			</ViewShot>
-		)
-	}
-
-	gen_img_id(len) {
-		var ID = Math.random().toString(36).substr(2,len);
-		console.log('ID: ' + ID);
-		//this.setState({img_id: ID});
 	}
 
 	render() {
