@@ -7,7 +7,8 @@ import * as FileSystem from 'expo-file-system';
 
 import { colour } from '../lib/Colours';
 import Eqn from '../lib/Eqn';
-import { gen_id, ld_file } from '../lib/Lib';
+import { gen_id, Txt_loader } from '../lib/Lib';
+
 
 class TMP extends Component {
 	constructor() {
@@ -27,8 +28,8 @@ class TMP extends Component {
 	}
 
 	testing() {
-		let ID = gen_id(128);
-		ld_file('');
+		//let ID = gen_id(128);
+		//ld_file('');
 	}
 
 
@@ -68,6 +69,7 @@ class TMP extends Component {
 					paddingBottom: 32,
 				}}>
 					{this.input()}
+					<Txt_loader fname='' />
 					<Text style={styles.titl_txt}>Title Example</Text>
 					
 					<Eqn ver={this.state.PLATF_OS}

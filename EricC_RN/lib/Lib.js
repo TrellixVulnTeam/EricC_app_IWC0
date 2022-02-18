@@ -4,7 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, Dimensions, Platform, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import * as FileSystem from 'expo-file-system';
+//import { Dirs, FileSystem } from 'react-native-file-access';
+
+//import * as ExpoFS from 'expo-file-system';
 
 import { colour } from './Colours';
 
@@ -44,7 +46,7 @@ DATE 			- date of article writing -- date follows author name
 SEARCH_TERMS 	- relevent search terms of article -- these at the end
 
 ________________________________________________________ 
--- note: all above end are 'within' article tags, rest 	|
+-- note: all above END are 'within' article tags, rest 	|
 --       are for authoring info and search parameters. 	|
 --														|
 --   so: if END used in wrong place, need to produce 	|
@@ -57,15 +59,41 @@ PS 				- paragraph separator
 */
 
 
-export function ld_file(file_path) {
-	let uri = 'file://' + file_path;
-	//let txt = FileSystem.readAsStringAsync(uri);
-	let dir = FileSystem.readDirectoryAsync(FileSystem.documentDirectory);
-	console.log('' + dir);
+export class Txt_loader extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			fname: this.props.fname,
+		};
+		this.componentDidMount = this.componentDidMount.bind(this);
+		this.ld_json = this.ld_json.bind(this);
+		this.tag_parse = this.tag_parse.bind(this);
+	}
+
+	async componentDidMount() {
+		await console.log(' ');
+		await this.tag_parse();
+		await console.log(' ');
+	}
+
+	async ld_json() {
+		let json_in = require('../tmp/test.json');
+		return json_in.text;
+	}
+
+	async tag_parse() {
+		let txt = await this.ld_json();
+		console.log(txt);
+
+
+	}
+
+	render() {
+		return(
+			<View>
+
+			</View>
+		)
+	}
+
 }
-
-function tag_parse(text) {
-
-}
-
-// display class/function

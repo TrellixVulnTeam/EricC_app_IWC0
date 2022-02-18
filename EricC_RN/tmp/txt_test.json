@@ -1,0 +1,35 @@
+[# TTL #]
+Test Title
+
+[# TXT #]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu velit cursus, dictum eros eget, commodo ante. Integer lobortis sem.
+[= PS =]
+Aenean pretium vulputate nisl ut semper.
+[= PS =]
+Suspendisse mollis eros nec felis rhoncus, eget.
+
+[# HDR #]
+test header for std code
+
+[# TXT #]
+I will do the syntax code at a later date
+
+[# CODE #]
+const x = some.function(input);
+
+[# HDR #]
+test header for eqn
+
+[# EQN #]
+\frac{a}{b} = \int_0^x \sin{(x)} \ dx
+
+[# TXT #]
+Morbi sed tellus facilisis, vehicula ante felis bibendum, fermentum urna.
+
+[# END #]
+
+[# AUTH #]
+Random Bugger
+
+[# DATE #]
+10/02/2022

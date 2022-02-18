@@ -5,7 +5,7 @@ import { StyleSheet, Text, ScrollView, View, Dimensions, Platform, TextInput } f
 import { colour } from '../lib/Colours';
 import Eqn from '../lib/Eqn';
 
-class Home extends Component {
+class Settings extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export { Home };
+export { Settings };
