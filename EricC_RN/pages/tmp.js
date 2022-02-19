@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, ScrollView, View, Dimensions, Platform, TextInput } from 'react-native';
-import * as FileSystem from 'expo-file-system';
 
 import { colour } from '../lib/Colours';
 import Eqn from '../lib/Eqn';

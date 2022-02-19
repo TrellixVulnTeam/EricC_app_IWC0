@@ -70,20 +70,23 @@ export class Txt_loader extends Component {
 		this.tag_parse = this.tag_parse.bind(this);
 	}
 
-	async componentDidMount() {
-		await console.log(' ');
-		await this.tag_parse();
-		await console.log(' ');
+	componentDidMount() {
+		console.log(' ');
+		this.tag_parse();
+		console.log(' ');
 	}
 
-	async ld_json() {
+	ld_json() {
 		let json_in = require('../tmp/test.json');
 		return json_in.text;
 	}
 
-	async tag_parse() {
-		let txt = await this.ld_json();
+	tag_parse() {
+		let tagset = require('./tagset.json');
+		console.log(tagset);
+		let txt = this.ld_json();
 		console.log(txt);
+		console.log(txt.split('[# '))
 
 
 	}
