@@ -4,11 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, Dimensions, Platform, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-//import { Dirs, FileSystem } from 'react-native-file-access';
-
-//import * as ExpoFS from 'expo-file-system';
-
+import Eqn from './Eqn';
 import { colour } from './Colours';
+import { article, REF, EQN } from './PresetStyles';
 
 // generates randomised string of length: 'len'
 export function gen_id(len) {
@@ -18,7 +16,7 @@ export function gen_id(len) {
 }
 
 
-// OPENER/LOADER, PARSER AND CONVERTER FOR FORMATTED TXT FILES
+// OPENER/LOADER, PARSER AND CONVERTER FOR FORMATTED TXT/JSON FILES
 
 /* Notes + info for the text file formatting & manipulation
 
@@ -82,13 +80,54 @@ export class Txt_loader extends Component {
 	}
 
 	tag_parse() {
+		// import tag set
 		let tagset = require('./tagset.json');
-		console.log(tagset);
+		// load the text to convert
 		let txt = this.ld_json();
-		console.log(txt);
-		console.log(txt.split('[# '))
 
+		// separate the tag types
+		let tags = tagset.tag_types;
+		let majs = tagset.MAJ;
+		let mins = tagset.MIN;
+	
+		//let doc_tag_s = tags.T_S + tags.DOC + tags.SEP;
+		//let doc_tag_e = tags.SEP + tags.DOC + tags.T_E;
 
+		// MAJOR tag tags built from config, then used for splitting text
+
+		let maj_tag_s = tags.T_S + tags.MAJ + tags.SEP;
+		let maj_tag_e = tags.SEP + tags.MAJ + tags.T_E;
+
+		let major_comps = [];
+		let tmp0 = txt.split(maj_tag_s);
+		let i = 0;
+		for (i = 0; i < tmp0.length; i++) {
+			let tmp1 = tmp0[i].split(maj_tag_e);
+			if (tmp1[0] != "") {
+				major_comps.push(tmp1)
+			}
+		}
+
+		//console.log(major_comps);
+
+		let comp_arr = new Array();
+		var type = '';
+		var content = '';
+		for (i = 0; i < major_comps.length; i++) {
+			type = major_comps[i][0];
+			content = major_comps[i][1];
+
+		}
+
+	}
+
+	vaild_date(date) {
+		// date comes in and should be dd/mm/yyyy
+		// => date[0] + date[1] <= 31
+		// => date[3] + date[4] <= 12
+		// year must be 4 digits long
+
+		return 0;
 	}
 
 	render() {

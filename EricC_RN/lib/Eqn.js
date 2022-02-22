@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, ScrollView, View, Dimensions, Platform, Image } from 'react-native';
+
 import { colour } from './Colours';
+import { article, EQN } from './PresetStyles';
+
 
 import { MathJaxSvg } from 'react-native-mathjax-html-to-svg';
 import ViewShot from 'react-native-view-shot';
@@ -11,10 +14,7 @@ class Eqn extends Component {
 		this.state = {
 			eqn: this.props.eqn,
 			ver: this.props.ver,
-			img: null,
-			img_id: '',
 		}
-		this.gen_eqn_view = this.gen_eqn_view.bind(this);
 	}
 
 	gen_eqn_view() {
@@ -27,8 +27,8 @@ class Eqn extends Component {
 				paddingVertical: 8,
 			}}>
 				<MathJaxSvg
-					fontSize={15}
-					color={colour.light}
+					fontSize={EQN.fontSize}
+					color={EQN.color}
 					fontCache={true}
 				>
 					{'$$'+ this.state.eqn +'$$'}
