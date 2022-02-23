@@ -68,7 +68,7 @@ class TMP extends Component {
 					paddingBottom: 32,
 				}}>
 					{this.input()}
-					<Txt_loader fname='' />
+					<Txt_loader fname=''/>
 					<Text style={styles.titl_txt}>Title Example</Text>
 					
 					<Eqn ver={this.state.PLATF_OS}

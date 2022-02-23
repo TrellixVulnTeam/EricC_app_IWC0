@@ -29,6 +29,6 @@
 		"search_terms": "SEARCH_TERMS",
 	},
 	"MIN": {
-		"para_sep": "PS",
+		"par_sep": "PS",
 	},
 }

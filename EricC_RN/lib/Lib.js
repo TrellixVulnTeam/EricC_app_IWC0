@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Eqn from './Eqn';
 import { colour } from './Colours';
-import { article, REF, EQN } from './PresetStyles';
+import { article, ref, eqn } from './PresetStyles';
 
 // generates randomised string of length: 'len'
 export function gen_id(len) {
@@ -94,30 +94,89 @@ export class Txt_loader extends Component {
 		//let doc_tag_e = tags.SEP + tags.DOC + tags.T_E;
 
 		// MAJOR tag tags built from config, then used for splitting text
-
 		let maj_tag_s = tags.T_S + tags.MAJ + tags.SEP;
 		let maj_tag_e = tags.SEP + tags.MAJ + tags.T_E;
 
+		// MINOR tag tags built from config, then used for splitting text
+		let min_tag_s = tags.T_S + tags.MIN + tags.SEP;
+		let min_tag_e = tags.SEP + tags.MIN + tags.T_E;
+
 		let major_comps = [];
 		let tmp0 = txt.split(maj_tag_s);
-		let i = 0;
+		let i = 0; // iterator vars
+		let j = 0;
 		for (i = 0; i < tmp0.length; i++) {
 			let tmp1 = tmp0[i].split(maj_tag_e);
 			if (tmp1[0] != "") {
 				major_comps.push(tmp1)
 			}
 		}
-
 		//console.log(major_comps);
 
+		// tmp vars for the loop
 		let comp_arr = new Array();
-		var type = '';
+		var typ = '';
 		var content = '';
-		for (i = 0; i < major_comps.length; i++) {
-			type = major_comps[i][0];
-			content = major_comps[i][1];
+		var ended = false; // if article has ended or not
 
+		// vars used for the paragraphs in the TXT tag
+		var par_sep = '';
+		var pars = [];
+		
+		let key_id = 0;
+		for (i = 0; i < major_comps.length; i++) {
+			typ = major_comps[i][0];
+			content = major_comps[i][1];
+			switch(typ) {
+				case majs.title:
+					//console.log(typ,content);
+					comp_arr[key_id] = <Text style={article.TTL} key={key_id}>{content}</Text>;
+					key_id += 1; 
+					break;
+				case majs.header:
+					//console.log(typ,content);
+					comp_arr[key_id] = <Text style={article.HDR} key={key_id}>{content}</Text>;
+					key_id += 1; 
+					break;
+				case majs.text:
+					//console.log(typ,content);
+					par_sep = min_tag_s + mins.para_sep + min_tag_e;
+					pars = content.split(par_sep);
+					for (j = 0; j < pars.length; j++) {
+						comp_arr[key_id] = <Text style={article.TXT} key={key_id}>{pars[j]}</Text>;
+						key_id += 1; 
+					}
+					break;
+				case majs.equation:
+					//console.log(typ,content);
+					comp_arr[key_id] = <Eqn key={key_id} eqn={content} />;
+					key_id += 1; 
+					break;
+				case majs.end:
+					//console.log(typ,content);
+					ended = true;
+					break;
+				case majs.author:
+					//console.log(typ,content);
+					if (ended == false) {
+						break;
+					}
+					else {
+
+					}
+					break;
+				case majs.date:
+					//console.log(typ,content);
+					if (ended == false) {
+						break;
+					}
+					else {
+
+					}
+					break;
+			}
 		}
+		return comp_arr;
 
 	}
 
@@ -133,7 +192,7 @@ export class Txt_loader extends Component {
 	render() {
 		return(
 			<View>
-
+				{this.tag_parse()}
 			</View>
 		)
 	}

@@ -6,12 +6,12 @@ import { StyleSheet, Text, ScrollView, View, Dimensions, Platform, TextInput } f
 
 import { colour } from './Colours';
 
-export const EQN = {
+export const eqn = {
 	fontSize: 15,
 	color: colour.light,
 };
 
-export const REF = StyleSheet.create({
+export const ref = StyleSheet.create({
 	author: {
 		fontStyle: 'normal',
 	},
@@ -39,18 +39,21 @@ export const article = StyleSheet.create({
 		fontSize: 18,
 		color: colour.light,
 		textAlign: 'left',
+		paddingVertical: 4,
 	},
 	HDR: {
 		fontWeight: 'bold',
 		fontSize: 16,
 		color: colour.light,
 		textAlign: 'left',
+		paddingVertical: 4,
 	},
 	TXT: {
 		fontWeight: 'normal',
 		fontSize: 14,
 		color: colour.light,
 		textAlign: 'justify',
+		paddingBottom: 4,
 	},
 	PLT: {
 
