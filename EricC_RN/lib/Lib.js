@@ -23,7 +23,7 @@ export function gen_id(len) {
 ## TXT FILE TAGSET ##
 DOC = [? ... ?] // document tag -- this is only a maybe, might not need it
 MAJ = [# ... #] // major tag
-COM = [- ... -] // comment tag
+COM = [- ... -] // comment tag -- haven't yet implmented any need of it
 MIN = [= ... =] // minor/detail tag
 
 ## MAJOR TAGS ##
@@ -127,17 +127,20 @@ export class Txt_loader extends Component {
 		for (i = 0; i < major_comps.length; i++) {
 			typ = major_comps[i][0];
 			content = major_comps[i][1];
+			//console.log(key_id)
 			switch(typ) {
 				case majs.title:
 					//console.log(typ,content);
 					comp_arr[key_id] = <Text style={article.TTL} key={key_id}>{content}</Text>;
 					key_id += 1; 
 					break;
+
 				case majs.header:
 					//console.log(typ,content);
 					comp_arr[key_id] = <Text style={article.HDR} key={key_id}>{content}</Text>;
 					key_id += 1; 
 					break;
+
 				case majs.text:
 					//console.log(typ,content);
 					par_sep = min_tag_s + mins.para_sep + min_tag_e;
@@ -147,31 +150,44 @@ export class Txt_loader extends Component {
 						key_id += 1; 
 					}
 					break;
+
 				case majs.equation:
 					//console.log(typ,content);
-					comp_arr[key_id] = <Eqn key={key_id} eqn={content} />;
+					comp_arr[key_id] = <Eqn key={key_id} eqn={content}/>;
 					key_id += 1; 
 					break;
+
+				case majs.code:
+					comp_arr[key_id] = <Text style={article.CODE} key={key_id}>{content}</Text>;
+					key_id += 1;
+					break;
+
+				// below cases are done
 				case majs.end:
-					//console.log(typ,content);
+					comp_arr[key_id] = <View key={key_id} style={article.END}/>;
+					key_id += 1;
 					ended = true;
 					break;
+
 				case majs.author:
 					//console.log(typ,content);
 					if (ended == false) {
 						break;
 					}
 					else {
-
+						comp_arr[key_id] = <Text style={article.AUTH} key={key_id}>{content}</Text>;
+						key_id += 1;
 					}
 					break;
+
 				case majs.date:
 					//console.log(typ,content);
 					if (ended == false) {
 						break;
 					}
 					else {
-
+						comp_arr[key_id] = <Text style={article.DATE} key={key_id}>{content}</Text>;
+						key_id += 1;
 					}
 					break;
 			}

@@ -23,7 +23,7 @@ for ln in DATA :
 # print(TO_JSON);
 
 OUTP = '''{
-	"text" : "%s",
+	"text" : "%s"
 }
 ''' % TO_JSON;
 

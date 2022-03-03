@@ -50,7 +50,7 @@ export const article = StyleSheet.create({
 	},
 	TXT: {
 		fontWeight: 'normal',
-		fontSize: 14,
+		fontSize: 13,
 		color: colour.light,
 		textAlign: 'justify',
 		paddingBottom: 4,
@@ -62,21 +62,39 @@ export const article = StyleSheet.create({
 
 	},
 	CODE: {
-
+		fontWeight: 'normal',
+		fontSize: 12,
+		color: colour.light,
+		textAlign: 'left',
+		marginVertical: 2,
+		fontFamily: 'monospace',
+		backgroundColor: 'rgba(220,220,220,0.175)',
+		paddingHorizontal: 4,
+		paddingBottom: 4,
+		paddingTop: 2,
 	},
-	CODEL: {
+	CODE_L: {
 
 	},
 	AUTH: {
 		fontWeight: 'normal',
-		fontSize: 13,
+		fontSize: 12,
 		color: colour.light,
-		opacity: 0.65,
+		opacity: 0.5,
+		textAlign: 'right',
 	},
 	DATE: {
 		fontWeight: 'normal',
-		fontSize: 13,
+		fontSize: 12,
 		color: colour.light,
-		opacity: 0.65,
+		opacity: 0.5,
+		textAlign: 'right',
 	},
+	END: {
+		height: 2,
+		width: '100%',
+		backgroundColor: colour.light,
+		opacity: 0.25,
+		marginVertical: 8,
+	}
 })

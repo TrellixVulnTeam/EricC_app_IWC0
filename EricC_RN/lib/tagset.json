@@ -6,10 +6,10 @@
 		"DOC": "?",
 		"MAJ": "#",
 		"MIN": "=",
-		"SEP": " ",
+		"SEP": " "
 	},
 	"DOC": {
-
+		"tmp": "..."
 	},
 	"MAJ": {
 		"title": "TTL",
@@ -21,14 +21,12 @@
 		"image": "IMG",
 		"code": "CODE",
 		"code_w_lang": "CODE/",
-
 		"end": "END",
-
 		"author": "AUTH",
 		"date": "DATE",
-		"search_terms": "SEARCH_TERMS",
+		"search_terms": "SEARCH_TERMS"
 	},
 	"MIN": {
-		"par_sep": "PS",
-	},
+		"para_sep": "PS"
+	}
 }

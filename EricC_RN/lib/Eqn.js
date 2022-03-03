@@ -13,14 +13,13 @@ class Eqn extends Component {
 		super(props);
 		this.state = {
 			eqn: this.props.eqn,
-			ver: this.props.ver,
-			key: this.props.key,
+			id: this.props.id,
 		}
 	}
 
 	gen_eqn_view() {
 		return(
-			<View key={this.state.key} style={{
+			<View key={this.state.id} style={{
 				width: '100%',
 				justifyContent: 'center',
 				justifyItems: 'center',
@@ -31,6 +30,7 @@ class Eqn extends Component {
 					fontSize={eqn.fontSize}
 					color={eqn.color}
 					fontCache={true}
+					key={this.state.id + 'e'}
 				>
 					{'$$'+ this.state.eqn +'$$'}
 				</MathJaxSvg>
