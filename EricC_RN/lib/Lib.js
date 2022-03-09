@@ -23,8 +23,8 @@ export function gen_id(len) {
 ## TXT FILE TAGSET ##
 DOC = [? ... ?] // document tag -- this is only a maybe, might not need it
 MAJ = [# ... #] // major tag
-COM = [- ... -] // comment tag -- haven't yet implmented any need of it
 MIN = [= ... =] // minor/detail tag
+COM = [- ... -] // comment tag -- haven't yet implmented any need of it
 
 ## MAJOR TAGS ##
 TTL 			- title
@@ -61,29 +61,27 @@ export class Txt_loader extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			fname: this.props.fname,
+			file: this.props.file,
 		};
 		this.componentDidMount = this.componentDidMount.bind(this);
 		this.ld_json = this.ld_json.bind(this);
 		this.tag_parse = this.tag_parse.bind(this);
 	}
 
-	componentDidMount() {
-		console.log(' ');
-		this.tag_parse();
-		console.log(' ');
+	async componentDidMount() {
+		//await this.tag_parse();
 	}
 
-	ld_json() {
-		let json_in = require('../tmp/test.json');
+	async ld_json(file) {
+		let json_in = await require(file);
 		return json_in.text;
 	}
 
-	tag_parse() {
+	async tag_parse() {
 		// import tag set
-		let tagset = require('./tagset.json');
+		let tagset = await require('./tagset.json');
 		// load the text to convert
-		let txt = this.ld_json();
+		let txt = await this.ld_json(this.state.file);
 
 		// separate the tag types
 		let tags = tagset.tag_types;
@@ -212,5 +210,4 @@ export class Txt_loader extends Component {
 			</View>
 		)
 	}
-
 }

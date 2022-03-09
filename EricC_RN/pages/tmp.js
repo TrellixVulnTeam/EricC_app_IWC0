@@ -62,7 +62,7 @@ class TMP extends Component {
 					paddingBottom: 32,
 				}}>
 					{this.input()}
-					<Txt_loader fname=''/>
+					<Txt_loader file='tmp/test.json'/>
 				</View>
 			</ScrollView>
 		)
