@@ -1,8 +1,0 @@
-Kinetic Energy
-E_K = \frac{1}{2} m v^2
-E_K, m, v
-Energy, Mass, Velocity
-None, Kinetic Energy of Gas Particle
-E_K = \frac{p^2}{2m}, E_K = \frac{3}{2} k_B T 
-p, k_B, T
-Momentum, Boltzmann Constant, Temperature

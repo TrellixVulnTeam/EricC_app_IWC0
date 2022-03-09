@@ -1,8 +1,0 @@
-Newton's Second Law
-F = ma
-F, m, a
-Force, Mass, Acceleration
-None, None
-F = \frac{dp}{dt}, F = \dot{p}
-p
-Momentum

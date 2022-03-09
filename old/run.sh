@@ -1,1 +1,0 @@
-/Users/ericc/anaconda3/bin/python manage.py runserver
