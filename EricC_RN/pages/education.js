@@ -3,7 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, ScrollView, View, Dimensions, Platform, TextInput } from 'react-native';
 
 import { colour } from '../lib/Colours';
-import Eqn from '../lib/Eqn';
 
 class Education extends Component {
 	constructor() {

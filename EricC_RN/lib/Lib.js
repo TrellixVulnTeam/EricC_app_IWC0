@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, Dimensions, Platform, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { MathJaxSvg } from 'react-native-mathjax-html-to-svg';
+import ViewShot from 'react-native-view-shot';
 
-import Eqn from './Eqn';
 import { colour } from './Colours';
 import { article, ref, eqn } from './PresetStyles';
 
@@ -15,9 +16,51 @@ export function gen_id(len) {
 	return ID;
 }
 
+export function ld_json(filepath) {
+	let RNFS = require('react-native-fs');
+	const file = RNFS.readFile(filePath, 'utf8');
+	console.log(file);
+}
+
+
+export class Eqn extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			eqn: this.props.eqn,
+			id: this.props.id,
+		}
+	}
+
+	gen_eqn_view() {
+		return(
+			<View key={this.state.id} style={{
+				width: '100%',
+				justifyContent: 'center',
+				justifyItems: 'center',
+				alignItems: 'center',
+				paddingVertical: 8,
+			}}>
+				<MathJaxSvg
+					fontSize={eqn.fontSize}
+					color={eqn.color}
+					fontCache={true}
+					key={this.state.id + 'e'}
+				>
+					{'$$'+ this.state.eqn +'$$'}
+				</MathJaxSvg>
+			</View>
+		)
+	}
+
+	render() {
+		return(
+			this.gen_eqn_view()
+		)
+	}
+}
 
 // OPENER/LOADER, PARSER AND CONVERTER FOR FORMATTED TXT/JSON FILES
-
 /* Notes + info for the text file formatting & manipulation
 
 ## TXT FILE TAGSET ##
@@ -36,13 +79,10 @@ PLT 			- plot
 IMG 			- image
 CODE 			- code (monospaced font)
 CODE/LANG 		- code w/ syntax highlighting for language
-
 END 			- end of article
-
 AUTH 			- author article was written by
 DATE 			- date of article writing -- date follows author name
 SEARCH_TERMS 	- relevent search terms of article -- these at the end
-
 ________________________________________________________ 
 -- note: all above END are 'within' article tags, rest 	|
 --       are for authoring info and search parameters. 	|
@@ -55,8 +95,6 @@ ________________________________________________________|
 PS 				- paragraph separator
 
 */
-
-
 export class Txt_loader extends Component {
 	constructor(props) {
 		super(props);
@@ -72,16 +110,16 @@ export class Txt_loader extends Component {
 		//await this.tag_parse();
 	}
 
-	async ld_json(file) {
-		let json_in = await require(file);
+	async ld_txt(file) {
+		let json_in = await ld_json(file);
 		return json_in.text;
 	}
 
 	async tag_parse() {
-		// import tag set
-		let tagset = await require('./tagset.json');
 		// load the text to convert
-		let txt = await this.ld_json(this.state.file);
+		let txt = await this.ld_txt(this.state.file);
+		// import tag set
+		let tagset = await ld_json('./tagset.json');
 
 		// separate the tag types
 		let tags = tagset.tag_types;
