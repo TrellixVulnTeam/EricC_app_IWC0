@@ -8,7 +8,7 @@ DATA = FILE_IN.readlines();
 FILE_IN.close();
 
 # print(DATA);
-TO_JSON = '';
+TO_JS = '';
 for ln in DATA :
 	ln_str = '';
 	for ch in ln :
@@ -18,16 +18,15 @@ for ln in DATA :
 			ln_str += '\\'
 		# else :
 		# 	ln_str += '\\n';
-	TO_JSON += ln_str;
+	TO_JS += ln_str;
 
 # print(TO_JSON);
 
-OUTP = '''{
-	"text" : "%s"
-}
-''' % TO_JSON;
+OUTP = '''const text = '%s';
+export default text;
+''' % TO_JS;
 
 # print into a JSON file
-FILE_OUT = open('%s/tmp/test.json' % DIR, 'w');
+FILE_OUT = open('%s/tmp/test.js' % DIR, 'w');
 FILE_OUT.write(OUTP);
 FILE_OUT.close();

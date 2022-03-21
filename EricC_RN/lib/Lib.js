@@ -9,6 +9,10 @@ import ViewShot from 'react-native-view-shot';
 import { colour } from './Colours';
 import { article, ref, eqn } from './PresetStyles';
 
+// import tag set
+import tagset from './tagset';
+
+
 // generates randomised string of length: 'len'
 export function gen_id(len) {
 	var ID = Math.random().toString(36).substr(2,len);
@@ -16,13 +20,12 @@ export function gen_id(len) {
 	return ID;
 }
 
-export function ld_json(filepath) {
-	let RNFS = require('react-native-fs');
-	const file = RNFS.readFile(filePath, 'utf8');
-	console.log(file);
+export function ld_txt(filepath) {
+	let tmp = await import(filepath);
+	console.log(tmp);
 }
 
-
+// eqn custom component for
 export class Eqn extends Component {
 	constructor(props) {
 		super(props);
@@ -83,7 +86,7 @@ END 			- end of article
 AUTH 			- author article was written by
 DATE 			- date of article writing -- date follows author name
 SEARCH_TERMS 	- relevent search terms of article -- these at the end
-________________________________________________________ 
+________________________________________________________
 -- note: all above END are 'within' article tags, rest 	|
 --       are for authoring info and search parameters. 	|
 --														|
@@ -102,7 +105,6 @@ export class Txt_loader extends Component {
 			file: this.props.file,
 		};
 		this.componentDidMount = this.componentDidMount.bind(this);
-		this.ld_json = this.ld_json.bind(this);
 		this.tag_parse = this.tag_parse.bind(this);
 	}
 
@@ -110,22 +112,16 @@ export class Txt_loader extends Component {
 		//await this.tag_parse();
 	}
 
-	async ld_txt(file) {
-		let json_in = await ld_json(file);
-		return json_in.text;
-	}
 
 	async tag_parse() {
 		// load the text to convert
-		let txt = await this.ld_txt(this.state.file);
-		// import tag set
-		let tagset = await ld_json('./tagset.json');
+		// let txt = ld_txt(this.state.file);
 
 		// separate the tag types
 		let tags = tagset.tag_types;
 		let majs = tagset.MAJ;
 		let mins = tagset.MIN;
-	
+
 		//let doc_tag_s = tags.T_S + tags.DOC + tags.SEP;
 		//let doc_tag_e = tags.SEP + tags.DOC + tags.T_E;
 
@@ -158,7 +154,7 @@ export class Txt_loader extends Component {
 		// vars used for the paragraphs in the TXT tag
 		var par_sep = '';
 		var pars = [];
-		
+
 		let key_id = 0;
 		for (i = 0; i < major_comps.length; i++) {
 			typ = major_comps[i][0];
@@ -168,13 +164,13 @@ export class Txt_loader extends Component {
 				case majs.title:
 					//console.log(typ,content);
 					comp_arr[key_id] = <Text style={article.TTL} key={key_id}>{content}</Text>;
-					key_id += 1; 
+					key_id += 1;
 					break;
 
 				case majs.header:
 					//console.log(typ,content);
 					comp_arr[key_id] = <Text style={article.HDR} key={key_id}>{content}</Text>;
-					key_id += 1; 
+					key_id += 1;
 					break;
 
 				case majs.text:
@@ -183,14 +179,14 @@ export class Txt_loader extends Component {
 					pars = content.split(par_sep);
 					for (j = 0; j < pars.length; j++) {
 						comp_arr[key_id] = <Text style={article.TXT} key={key_id}>{pars[j]}</Text>;
-						key_id += 1; 
+						key_id += 1;
 					}
 					break;
 
 				case majs.equation:
 					//console.log(typ,content);
 					comp_arr[key_id] = <Eqn key={key_id} eqn={content}/>;
-					key_id += 1; 
+					key_id += 1;
 					break;
 
 				case majs.code:

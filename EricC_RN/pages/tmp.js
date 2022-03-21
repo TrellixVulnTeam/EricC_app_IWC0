@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, ScrollView, View, Dimensions, Platform, TextInput } from 'react-native';
 
 import { colour } from '../lib/Colours';
-import { gen_id, ld_json, Txt_loader, Eqn} from '../lib/Lib';
+import { ld_txt, Txt_loader, Eqn} from '../lib/Lib';
 
 
 class TMP extends Component {
@@ -23,7 +23,7 @@ class TMP extends Component {
 	}
 
 	componentDidMount() {
-		ld_json('../tmo/test.json');
+		ld_txt('../tmo/test.js');
 	}
 
 	update_inp_field(text) {
@@ -45,7 +45,7 @@ class TMP extends Component {
 					fontSize: 14,
 					color: colour.dark,
 				}}
-				onChangeText={text => this.update_inp_field(text)} 
+				onChangeText={text => this.update_inp_field(text)}
 				placeholder='Type here...'
 			/>
 		)
@@ -62,7 +62,7 @@ class TMP extends Component {
 					paddingBottom: 32,
 				}}>
 					{this.input()}
-					{/*<Txt_loader file='tmp/test.json'/>*/}
+					{/* <Txt_loader file='tmp/test.js'/> */}
 				</View>
 			</ScrollView>
 		)
