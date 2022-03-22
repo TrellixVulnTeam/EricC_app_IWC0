@@ -20,9 +20,9 @@ export function gen_id(len) {
 	return ID;
 }
 
-export function ld_txt(filepath) {
-	let tmp = await import(filepath);
-	console.log(tmp);
+export async function ld_txt(filepath) {
+	let txt_import = await import(filepath);
+	console.log(txt_import)
 }
 
 // eqn custom component for
