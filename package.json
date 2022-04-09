@@ -1,0 +1,35 @@
+{
+  "name": "ericc_app",
+  "version": "1.0.0",
+  "description": "Independant app to store and provide as much free educational material as possible and be a platform for projects.",
+  "main": "index.js",
+  "dependencies": {
+    "create-react-native-app": "^3.8.0",
+    "expo": "^44.0.6",
+    "expo-cli": "^5.3.0",
+    "npm": "^8.6.0",
+    "npx": "^10.2.2",
+    "react": "^18.0.0",
+    "react-native": "^0.68.0",
+    "react-native-cli": "^2.0.1",
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YeOldeEricC/EricC_app.git"
+  },
+  "keywords": [
+    "App",
+    "React-Native"
+  ],
+  "author": "EricC",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/YeOldeEricC/EricC_app/issues"
+  },
+  "homepage": "https://github.com/YeOldeEricC/EricC_app#readme"
+}
