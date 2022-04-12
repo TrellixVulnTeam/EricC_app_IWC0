@@ -37,7 +37,7 @@ def huffman(string) :
 			symb_cnt[ch] += 1;
 		#print('%d - %s' % (lc,ch), end='\r');
 		lc += 1;
- 
+
 	# reformats dict for freq and symbols
 	cnt_symb = {};
 	for i in symb_cnt :
@@ -92,44 +92,47 @@ def huffman(string) :
 		# which letter code is assigned an additional one or zero
 		zero = str(current_level[min_pair[1]][1]);
 		one = str(current_level[min_pair[0]][1]);
-		
+
 		# psuedo node for the tree to put back in the list
 		node_id = '%s%s' % (zero, one);
 		node = [min_pair[-1],node_id]
 		print('new node str -',node_id);
-		
+
 		# appending the additional 0/1 to th dictionary, adding a value if needed
-		if zero not in code_dict :
-			code_dict[zero] = '';
+		for ch_zero in zero :
+			if ch_zero not in code_dict :
+				code_dict[ch_zero] = '';
+			code_dict[ch_zero] += '0';
 
-		if one not in code_dict :
-			code_dict[one] = '';
-
-		code_dict[zero] += '0';
-		code_dict[one] += '1';
+		for ch_one in one :
+			if ch_one not in code_dict :
+				code_dict[ch_one] = '';
+			code_dict[ch_one] += '1';
 
 		# updating the current_level list
 		new_node_in = 0;
 		new_level = [];
 		ind_list = range(0,len_list);
 		for i in ind_list :
-			if new_node_in != 0 and i not in [ind,ind+1] :
-				new_level.append(current_level[i]);
-				# print(i,'old in',current_level[i])
-				continue;
 			if new_node_in == 0 and i in [ind,ind+1] :
 				new_level.append(node);
 				# print(i,'new in',current_level[i])
 				new_node_in = 1;
 				continue;
+			elif i not in [ind,ind+1] :
+				new_level.append(current_level[i]);
+				# print(i,'old in',current_level[i])
+				continue;
+
 
 		print('loop -',loop);
 		print('inds to comb -', ind, ind+1);
-		print(current_level[0]);
-		print(new_level[0]);
-		print(code_dict);
+		#print(code_dict);
+		for i in code_dict : print(i,code_dict[i]);
+		for i in new_level : print(i);
 		# early break for testing purposes
-		if loop == 1 :
+		len_new_list = len(new_level);
+		if len_new_list == 1 :
 			break;
 		loop += 1; print();
 		current_level = new_level;
