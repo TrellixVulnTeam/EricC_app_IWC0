@@ -6,7 +6,7 @@ import { eqn } from './PresetStyles';
 
 
 import { MathJaxSvg } from 'react-native-mathjax-html-to-svg';
-import ViewShot from 'react-native-view-shot';
+
 
 class Eqn extends Component {
 	constructor(props) {

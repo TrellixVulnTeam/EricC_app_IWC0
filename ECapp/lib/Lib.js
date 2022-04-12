@@ -4,22 +4,16 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, Dimensions, Platform, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { MathJaxSvg } from 'react-native-mathjax-html-to-svg';
-import ViewShot from 'react-native-view-shot';
 
 import { colour } from './Colours';
 import { article, ref, eqn } from './PresetStyles';
-
-import * as FS from 'expo-file-system';
-import RNFetchBlob from 'rn-fetch-blob';
 
 // import of tmp text source
 import TXT_TEST from '../tmp/test';
 
 // loading text from file, return str
 export function ld_txt(filepath) {
-	RNFetchBlob.fs.readFile(filepath).then(data => {
-		console.log(data);
-	});
+
 }
 
 // eqn custom component for

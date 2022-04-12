@@ -23,7 +23,6 @@ class TMP extends Component {
 	}
 
 	componentDidMount() {
-		ld_txt('/tmp/txt_test.txt');
 	}
 
 	update_inp_field(text) {
