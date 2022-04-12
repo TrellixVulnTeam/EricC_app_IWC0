@@ -95,8 +95,8 @@ def huffman(string) :
 
 		# psuedo node for the tree to put back in the list
 		node_id = '%s%s' % (zero, one);
-		node = [min_pair[-1],node_id]
-		print('new node str -',node_id);
+		node = [min_pair[-1],node_id];
+		#print('new node str -',node_id);
 
 		# appending the additional 0/1 to th dictionary, adding a value if needed
 		for ch_zero in zero :
@@ -124,27 +124,57 @@ def huffman(string) :
 				# print(i,'old in',current_level[i])
 				continue;
 
-
-		print('loop -',loop);
-		print('inds to comb -', ind, ind+1);
+		#print('loop -',loop);
+		#print('inds to comb -', ind, ind+1);
 		#print(code_dict);
-		for i in code_dict : print(i,code_dict[i]);
-		for i in new_level : print(i);
+		#for i in code_dict : print(i,code_dict[i]);
+		#for i in new_level : print(i);
+
 		# early break for testing purposes
 		len_new_list = len(new_level);
 		if len_new_list == 1 :
+			outp_code = code_dict;
 			break;
-		loop += 1; print();
+		loop += 1; #print();
 		current_level = new_level;
 
+	return outp_code;
 
+# converting old string to huffman encoded binary
+def str_to_huffman_bin(huffman_code, string_in) :
+	bin_str_out = '';
+	for ch in string_in :
+		bin_str_out += huffman_code[ch];
+	return bin_str_out;
 
+code = huffman(TO_JS);
+#for i in code : print(i,code[i]);
 
+tmp_str = str_to_huffman_bin(code,TO_JS);
+#print('string converted to binary via huffman');
+#print(tmp_str);
 
-huffman(TO_JS);
+old_len = (8*len(TO_JS));
+new_len = len(tmp_str);
+len_diff = old_len - new_len;
 
+code_bits = [len(code[i]) for i in code];
+mean_bits = sum(code_bits)/len(code_bits)
+
+mean_chars = new_len/len(TO_JS);
+
+print();
+print('given 1ch == 8bits...');
+print('before = %d bits' % old_len);
+print('after = %d bits' % new_len);
+print('reduction = %d' % len_diff);
+print('average code length acc to dict = %f bits' % mean_bits);
+print('average code length acc to chars = %f bits' % mean_chars);
+print();
 
 # with the compressed txt put into js file, then need to write decompressor in js
+
+
 
 OUTP = '''const TXT_TEST = '%s';
 export default TXT_TEST;
