@@ -9,7 +9,7 @@ import { colour } from './Colours';
 import { article, ref, eqn } from './PresetStyles';
 
 // import of tmp text source
-import TXT_TEST from '../tmp/test';
+import { TXT_TEST } from '../tmp/test';
 
 // loading text from file, return str
 export function ld_txt(filepath) {
